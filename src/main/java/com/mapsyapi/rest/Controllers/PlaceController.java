@@ -1,7 +1,6 @@
 package com.mapsyapi.rest.Controllers;
 
 import java.util.List;
-import java.util.stream.Stream;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
@@ -67,7 +66,6 @@ public class PlaceController {
 
 	@RequestMapping(value = "/update", method = RequestMethod.PUT,  consumes = MediaType.APPLICATION_JSON_VALUE)
 	public void updatePlace(@RequestBody Place place) throws PlaceResourceNotFound {
-		Place test = place;
 		if(this.repo.existsById(place.getId()))
 				this.repo.save(place);
 		else throw new PlaceResourceNotFound("Place by that id was not found");

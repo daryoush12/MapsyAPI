@@ -3,8 +3,6 @@ package com.mapsyapi.rest.repositories;
 import java.util.List;
 
 import org.springframework.data.mongodb.repository.MongoRepository;
-import org.springframework.data.mongodb.repository.Query;
-
 import com.mapsyapi.rest.models.Place;
 
 
