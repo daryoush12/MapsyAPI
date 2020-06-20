@@ -29,12 +29,12 @@ public class Place {
 		this.title = title;
 	}
 
-	public String getDescripition() {
+	public String getDescription() {
 		return this.description;
 	}
 
-	public void setDescripition(String descripition) {
-		this.description = descripition;
+	public void setDescription(String description) {
+		this.description = description;
 	}
 
 	public Coordinates getCoordinates() {
@@ -61,6 +61,13 @@ public class Place {
 	}
 
 	public Place() {
+	}
+	
+	public Boolean contains(String value) {
+	 if(title.contains(value) || description.contains(value)){
+			 return true;
+	 }
+	 else return false;
 	}
 
 }

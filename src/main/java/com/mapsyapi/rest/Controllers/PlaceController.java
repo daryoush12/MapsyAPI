@@ -1,6 +1,7 @@
 package com.mapsyapi.rest.Controllers;
 
 import java.util.List;
+import java.util.stream.Stream;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
@@ -11,7 +12,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.mapsy.rest.excpetion.PlaceResourceNotFound;
+import com.mapsyapi.rest.excpetion.PlaceResourceNotFound;
 import com.mapsyapi.rest.models.Place;
 import com.mapsyapi.rest.repositories.PlaceRepository;
 
@@ -40,6 +41,18 @@ public class PlaceController {
 	public Place PlaceByDescription(@RequestParam String desc) {
 		Place result = this.repo.findByDescription(desc);
 		return result;
+	}
+	
+	@RequestMapping(value = "/all/search", method = RequestMethod.GET)
+	public List<Place> PlacesBySearchValue(@RequestParam String value){
+		if(value == ""){
+			List<Place> result = this.repo.findAll();
+			return result;
+		}else {
+			List<Place> result = this.repo.findByTitleLikeIgnoreCase(value);
+			return result;
+		}
+		
 	}
 
 	@RequestMapping(value = "/delete", method = RequestMethod.DELETE)

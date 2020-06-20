@@ -24,7 +24,7 @@ public class DataSeeder implements CommandLineRunner {
 		// TODO Auto-generated method stub
 		
 		Place place = new Place("Bear Coffee", "Quiet and relaxing coffee shop with nothing but the best coffee.", new Coordinates(25, 50));
-		Place place1 = new Place("Bob's Burgers", "Greasiest burgers you can find around.", new Coordinates(15, 70));
+		Place place1 = new Place("Bear Burgers", "Greasiest burgers you can find around.", new Coordinates(15, 70));
 		Place place2 = new Place("Fake It Market", "For your everyday needs and requirements to be fufilled.", new Coordinates(75, 10));
 		
 		
