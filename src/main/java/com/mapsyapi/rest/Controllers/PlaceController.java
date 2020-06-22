@@ -16,7 +16,8 @@ import com.mapsyapi.rest.models.Place;
 import com.mapsyapi.rest.repositories.PlaceRepository;
 
 @RestController
-@CrossOrigin(origins = "https://quiet-dawn-43151.herokuapp.com")
+@CrossOrigin(origins = {"https://quiet-dawn-43151.herokuapp.com", 
+		"http://localhost:3000"})
 @RequestMapping("/places")
 public class PlaceController {
 

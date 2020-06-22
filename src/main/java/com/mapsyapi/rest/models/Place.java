@@ -1,5 +1,7 @@
 package com.mapsyapi.rest.models;
 
+import java.util.ArrayList;
+
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 import com.fasterxml.jackson.annotation.JsonProperty;
@@ -16,7 +18,10 @@ public class Place {
 	private String description;
 	@JsonProperty("coordinates")
 	private Coordinates coordinates;
-
+	
+	@JsonProperty("open_hours")
+	private Openings openings;
+	
 	public String getTitle() {
 		return title;
 	}
@@ -44,6 +49,16 @@ public class Place {
 	public void setCoordinates(Coordinates coordinates) {
 		this.coordinates = coordinates;
 	}
+	
+	
+
+	public Openings getOpenings() {
+		return openings;
+	}
+
+	public void setOpenings(Openings openings) {
+		this.openings = openings;
+	}
 
 	public Place(String title, String description, Coordinates coordinates) {
 		super();
@@ -59,15 +74,18 @@ public class Place {
 		this.description = description;
 		this.coordinates = coordinates;
 	}
+	
+	
+
+	public Place(String title, String description, Coordinates coordinates, Openings openings) {
+		super();
+		this.title = title;
+		this.description = description;
+		this.coordinates = coordinates;
+		this.openings = openings;
+	}
 
 	public Place() {
 	}
 	
-	public Boolean contains(String value) {
-	 if(title.contains(value) || description.contains(value)){
-			 return true;
-	 }
-	 else return false;
-	}
-
 }
